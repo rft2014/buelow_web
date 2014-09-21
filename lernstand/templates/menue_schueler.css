@@ -1,0 +1,62 @@
+#tabmenue {
+  padding: 3px;
+  border-bottom: 1px solid #222; 
+}
+#tabmenue li {
+  display: inline; 
+}
+#tabmenue li a {
+  padding: 3px 1em;
+  margin-left: 3px;
+  border: 1px solid #777;
+  border-bottom: 0;
+  text-decoration: none; 
+  background-color: #044583;
+  color: white;
+  font-family: sans-serif;
+}
+#tabmenue li a#schuelerlzv {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+  
+}
+#tabmenue li a#schuelerses {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+}
+#tabmenue li a#schuelerstart {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+}
+
+/* fuer class_lzv.php*/
+#old_lz_text{
+	
+	background-color:#dadada;
+	color:#4a4a4a;
+	width: 1000px;
+	font-size: 80%;
+		
+	}
+#lz_header{
+	background-color:whitesmoke;
+	font-family: sans-serif;
+	width: 1000px;
+	font-size: 90%;
+	}
+#lz_eingabefeld{
+background-color: whitesmoke;;	
+width: 995px;
+height: 50px;
+	}
+	#lz{
+		
+		border:3px double #b3d9ff;	
+		width: 1100px;
+		}

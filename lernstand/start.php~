@@ -1,0 +1,61 @@
+<html>
+<head>
+<style type="text/css">
+.a{
+
+margin-top:50px;
+
+text-align:center;
+}
+.h3{
+text-align:center;
+font-family:sans serif;
+margin-top:180px;
+}
+.f{
+text-align:center;
+font-family:sans serif;
+//margin-top:180px;
+}
+</style>
+</head>
+<body>
+
+
+<?php
+if($_POST['pw'] == "lemontree") {} 
+else {
+  die("Falsches Passwort!");
+}
+?>
+<h3 class="h3"> Bitte w&auml;hlen Sie die zu bearbeitende Klasse!</h3>
+
+<div class="f">
+
+<form action="datenmaske.php" method="POST">
+<input type="Radio" name="Klasse" value="5/1">5/1
+<input type="Radio" name="Klasse" value="5/2">5/2
+<input type="Radio" name="Klasse" value="5/3">5/3
+<input type="Radio" name="Klasse" value="6a">6a
+<input type="Radio" name="Klasse" value="6b">6b
+<input type="Radio" name="Klasse" value="7a">7a
+<input type="Radio" name="Klasse" value="7b">7b
+<input type="Radio" name="Klasse" value="7c">7c
+<input type="Radio" name="Klasse" value="8a">8a
+<input type="Radio" name="Klasse" value="8b">8b
+<input type="Radio" name="Klasse" value="8c">8c
+<input type="Radio" name="Klasse" value="9a">9a
+<input type="Radio" name="Klasse" value="9b">9b
+<input type="Radio" name="Klasse" value="9c">9c
+<input type="Radio" name="Klasse" value="9d">9d
+</div>
+
+<div class = "a">
+<input type="submit" value="Weiter">
+</form>
+</div>
+
+
+
+</body>
+</html>

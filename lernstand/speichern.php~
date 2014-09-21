@@ -1,0 +1,20 @@
+
+
+<html>
+<head>
+
+</head>
+<body>
+<?php
+
+foreach ($_POST as $wert){
+	echo "$wert <br \>";
+	}
+echo count($_POST);
+?>
+
+</body>
+</html>
+
+
+

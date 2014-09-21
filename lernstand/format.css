@@ -1,0 +1,78 @@
+#outer_wrapper{
+	position:absolute;
+	width:800px;
+	left:50%;
+	margin-left:-400px;
+	height:2000px;
+	background-color:#c8edf1;
+	
+}
+
+#oben {
+	text-align:center;
+	background-color:#b3d9ff;
+	font-size: 16px;
+	font-family: Verdana, Arial;
+	color: black;
+}
+
+#selectCourse{
+	position:absolute;
+  margin-top:150px;
+  border-width:1px;
+  border-style:solid;
+  border-color:blue;
+  border-radius:15px;
+  padding:2.5em;
+  text-align:center;
+  width:800px;
+  left:50%;
+  margin-left:-400px;
+  background-color:#b3d9ff;
+	font-size: 16px;
+	font-family: Verdana, Arial;
+margin-top:180px;
+}
+#speichern{
+	position:absolute;
+  margin-top:150px;
+  border-width:1px;
+  border-style:solid;
+  border-color:blue;
+  border-radius:15px;
+  padding:2.5em;
+  text-align:center;
+  width:800px;
+  left:50%;
+  margin-left:-400px;
+  background-color:#b3d9ff;
+	font-size: 16px;
+	font-family: Verdana, Arial;
+margin-top:180px;
+}
+
+#noten{
+	font-size:50%;
+}
+#schueler{
+        font-size:70%;
+        font-family:Verdana, Arial;
+}
+.a{
+
+margin-top:50px;
+
+text-align:center;
+}
+#textbox {
+	position:absolute;
+	width:300px;
+	height:100px;
+	left:50%;
+	margin-left:-150px;
+	font-size:16px;
+	text-align:center;
+	padding:2em;
+	background-color:green;
+
+}

@@ -1,0 +1,69 @@
+<?php
+		include('db_conn.php');
+		
+     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      session_start();
+	//	mysql_close($verbindung);
+		$nachname;
+      $username = $_POST['username'];
+      $passwort = $_POST['passwort'];
+		$md5Passwort = md5($passwort);
+		$pw = mysql_query("SELECT * FROM ilias.usr_data WHERE login = '$username' AND passwd = '$md5Passwort'");
+		$uid = mysql_result($pw,'0','usr_id');
+		$role = mysql_query("SELECT * FROM ilias.udf_text WHERE usr_id = '$uid'" );
+		if(mysql_result($role, '0', 'value') == 'Lehrer') {
+			$_SESSION["rolle"] = "1";		
+		}else{$_SESSION["rolle"] = "2";}
+		
+		mysql_close($verbindung);
+		$vorname = mysql_result($pw, '0','firstname');
+		$nachname = mysql_result($pw,'0','lastname');
+		$_SESSION["vn"] = $vorname;
+		$_SESSION["nn"] = $nachname;
+	
+      $hostname = $_SERVER['HTTP_HOST'];
+      $path = dirname($_SERVER['PHP_SELF']);
+
+      // Benutzername und Passwort werden überprüft
+     
+     	if (mysql_num_rows($pw)){
+       $_SESSION['angemeldet'] = true;
+
+       // Weiterleitung zur geschützten Startseite
+       if ($_SERVER['SERVER_PROTOCOL'] == 'HTTP/1.1') {
+        if (php_sapi_name() == 'cgi') {
+         header('Status: 303 See Other');
+         }
+        else {
+         header('HTTP/1.1 303 See Other');
+         }
+        }
+
+       header('Location: http://'.$hostname.($path == '/' ? '' : $path).'/start1.php');
+       exit;
+       }
+      }
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+ <head>
+ <meta http-equiv="content-type" content="text/html; charset=UTF8" />
+ <link rel="stylesheet" type="text/css" href="./templates/start.css">
+  <title>Lernstand</title>
+ </head>
+ <body>
+ 
+  
+  <div class ="login">Hier gelten Ihre Anmeldedaten<br/>des virtuellen vBG 
+<div class="pwfield">
+<form  action="loginLS.php" method="post">
+Benutzername: <input type="text" name="username" /><br/>
+Passwort: <input type="password" name="passwort"/><br/>
+<input type="submit" value="Anmelden"/>
+</form>
+
+
+</div>
+</div>
+ </body>
+</html>

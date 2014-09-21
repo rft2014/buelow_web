@@ -1,0 +1,72 @@
+ function showTip(ev)
+  {
+      if(!ev) { ev = window.event; };
+
+      var infotext = '';
+
+      for(var n=0; n<this.childNodes.length; n++)
+      {
+          if(this.childNodes[n].tagName == "SPAN")
+          {
+              infotext = this.childNodes[n].innerHTML; break;
+          }
+      }
+
+      if(infotext.length)
+      {
+          infodiv = document.getElementById('info');
+          infodiv.innerHTML = infotext;
+      
+          infodiv.style.display = 'block';
+
+          var scrollOffset = getScrollOffset();
+
+          infodiv.style.top  = ev.clientY + scrollOffset[1] + 20 + 'px';
+          infodiv.style.left = ev.clientX + scrollOffset[0] + 20 + 'px';
+      }
+  }
+  
+  function hideTip()
+  {   document.getElementById('info').style.display = 'none';   }
+  
+  function initTooltips()
+  {
+      var infodiv = document.createElement('DIV');
+      infodiv.id = 'info';
+      document.getElementsByTagName('body')[0].appendChild(infodiv);
+
+      var liste = document.getElementsByTagName('A');
+    
+      for (var n=0; n<liste.length; n++)
+      {
+          if(liste[n].className.match( /tooltip/ ))
+          {
+              liste[n].onmousemove = showTip;
+              liste[n].onmouseout  = hideTip;
+          }
+      }
+  }
+  
+  function getScrollOffset()          // Funktionskörper von quirksmode.org
+  {
+      var x = 0, y = 0;
+      if (self.pageYOffset)          // all except Explorer
+      {
+          x = self.pageXOffset;
+          y = self.pageYOffset;
+      }
+      else if (document.documentElement && document.documentElement.scrollTop)
+               // Explorer 6 Strict
+      {
+          x = document.documentElement.scrollLeft;
+          y = document.documentElement.scrollTop;
+      }
+      else if (document.body)           // all other Explorers
+      {
+          x = document.body.scrollLeft;
+          y = document.body.scrollTop;
+      };
+      return new Array(x,y);
+  }
+
+  /* ]]> */

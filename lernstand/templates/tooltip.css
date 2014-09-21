@@ -1,0 +1,35 @@
+td.tooltip
+{     text-decoration: none;
+      //border-bottom: 1px solid red;
+      color: #444444;
+      font-weight: bold;
+}
+
+td.tooltip span  { display: none; }         /* ! */
+
+#info
+{     position: absolute;              /* ! */
+      display:none;                   /* ! */
+      width: 200px;
+      background: #ffffdd; padding: 7px;
+     // border: 1px solid #666666;
+     //	border-top: 1px solid #666666;
+      font-size:100%;
+}
+
+#info b
+{     display: block;
+      border-bottom: 1px solid #666666;
+      margin-bottom: 5px;
+      font-style:italic ;
+      font-size: 70%;
+}
+
+#info kom{
+	display: block;
+	font-size:70%;
+	font-family:sans serif, Verdana, Arial;
+//	border-width:1px;
+//	border-style:solid;
+	background-color:white;
+}

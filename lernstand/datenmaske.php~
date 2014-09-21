@@ -1,0 +1,119 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="tooltip.css" />
+<link type="text/css" rel="stylesheet" href="format.css" />
+
+<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body  onload="initTooltips()">
+
+<?php
+$verbindung = mysql_connect ("localhost",
+"web251", "buelow123")
+or die ("keine Verbindung möglich.
+ Benutzername oder Passwort sind falsch");
+
+mysql_select_db("usr_web251_5")
+or die ("Die Datenbank existiert nicht.");
+
+$_create_schuelerdaten="CREATE TABLE IF NOT EXISTS schuelerdaten (uid INTEGER, username VARCHAR(50), firstname VARCHAR(50), lastname VARCHAR(50), klasse VARCHAR(10),sex VARCHAR(1), fremdsprache VARCHAR(15),PRIMARY KEY (uid))";
+$_create_bewertung = "CREATE TABLE IF NOT EXISTS bewertung (uid INTEGER, tmstamp TIMESTAMP, fach VARCHAR(10), wert INTEGER, frage INTEGER, FOREIGN KEY (uid) REFERENCES schuelerdaten(uid))";
+$_create_frage = "CREATE TABLE IF NOT EXISTS frage (frage_nr INTEGER, frage_lang VARCHAR(200), kategorie VARCHAR(10), kompetenz VARCHAR(50), PRIMARY KEY (frage_nr))";
+$_create_fach = "CREATE TABLE IF NOT EXISTS fach (fach_kurz VARCHAR(10), fach_lang VARCHAR(50), bewertung_klasse VARCHAR(5), PRIMARY KEY (fach_lang))";
+$_create_kompetenz = "CREATE TABLE IF NOT EXISTS kompetenz (kompetenz_nr INTEGER, kompetenz VARCHAR(50),PRIMARY KEY(kompetenz_nr))";
+$_create_kategorie = "CREATE TABLE IF NOT EXISTS kategorie (kategorie_nr INTEGER, kategorie VARCHAR(50), PRIMARY KEY(kategorie_nr))";
+$_create_klassenstufe = "CREATE TABLE IF NOT EXISTS klassenstufe (klassenstufe_nr INTEGER, klassenstufe VARCHAR(10), PRIMARY KEY(klassenstufe_nr))";
+$_drop_schuelerdaten = "DROP TABLE  IF EXISTS schuelerdaten";
+$_drop_bewertung = "DROP TABLES IF EXISTS bewertung";
+$_drop_frage = "DROP TABLE  IF EXISTS frage";
+$_drop_fach = "DROP TABLE IF EXISTS fach";
+$_drop_kompetenz = "DROP TABLE IF EXISTS kompetenz";
+$_drop_kategorie = "DROP TABLE IF EXISTS kategorie";
+$_drop_klassenstufe = "DROP TABLE IF EXISTS klassenstufe";
+
+$cc = $_POST['Klasse']; 
+$klassenstufe = preg_replace('![^5-9]!', '', $cc);//Variable fuer Auswahl aus DB/Fach und extrahiere erste Ziffer 
+
+$abfrageSchuelerDaten = "SELECT * FROM schuelerdaten WHERE klasse =  '". $cc."'  ORDER BY lastname ";
+$abfrageFragen = "SELECT frage_lang FROM frage WHERE klassenstufe LIKE '%$klassenstufe%' ORDER BY kategorie";
+$ergebnisSchuelerDaten = mysql_query($abfrageSchuelerDaten);
+$ergebnisFragen = mysql_query($abfrageFragen);
+$zeilenSchuelerDaten = mysql_num_rows($ergebnisSchuelerDaten);
+$zeilenFragen = mysql_num_rows($ergebnisFragen);
+?>
+
+<?php
+echo "<div id = \"oben\">";
+echo "ausgew&auml;hlte Klasse:  "  . $_POST['Klasse'] . "   ";
+echo "Sch&uuml;lerzahl:  " . $zeilenSchuelerDaten;
+echo "</div>";
+//$klassenstufe = preg_replace('![^5-9]!', '', $_POST['Klasse']);//Variable fuer Auswahl aus DB/Fach und extrahiere erste Ziffer 
+
+?>
+<br/>
+<div id = "fachwahl">
+Bitte w&auml;hlen Sie Ihr Fach!
+<form action="datenmaske.php" method="POST">
+
+<?php
+$bewertungsfach = mysql_query("SELECT * FROM fach WHERE bewertung_klasse LIKE '%$klassenstufe%'");
+$fach_anzahl = mysql_num_rows($bewertungsfach);
+while($x = mysql_fetch_assoc($bewertungsfach)){
+echo "<input type=\"Radio\" name=\"Fach\" value= $x[fach_kurz]>$x[fach_kurz]";
+}
+echo "</form></div>";
+//mysql_query($_drop_schuelerdaten);
+//mysql_query($_drop_bewertung);
+//mysql_query($_drop_frage);
+//mysql_query($_drop_fach);
+//mysql_query($_drop_kompetenz);
+//mysql_query($_drop_kategorie);
+//mysql_query($_drop_klassenstufe);
+mysql_query($_create_schuelerdaten);
+mysql_query($_create_bewertung);
+mysql_query($_create_frage);
+mysql_query($_create_fach);
+mysql_query($_create_kompetenz);
+mysql_query($_create_kategorie);
+mysql_query($_create_klassenstufe);
+//mysql_close($verbindung);
+?>
+
+<table border = "2" rules="rows">
+<?php
+$dsatzFragen = array();
+while($row = mysql_fetch_array($ergebnisFragen)){
+	$dsatzFragen[] = $row[0];
+}
+	
+
+  while($dsatzSchuelerDaten = mysql_fetch_assoc($ergebnisSchuelerDaten)){
+
+  $name = $dsatzSchuelerDaten["lastname"];
+  $vorname =$dsatzSchuelerDaten["firstname"] ;
+ 
+  
+  echo  "<tr><td>$name</td><td>$vorname</td><td class = \"noten\">stimme voll zu<br>stimme zu<br>stimme weniger zu<br>stimme nicht zu<td>";
+   
+	
+	for ($i=0;$i<$zeilenFragen;$i++)
+	{
+	$frage = "Frage".$i.$name;
+	echo  "<td class=\"tooltip\"  form action=\"fragen.php\" method=\"get\"><span><b>$vorname $name</b>$dsatzFragen[$i]</span>"
+	  ."<input type=\"Radio\" name=$frage value=\"1\"><br>"
+	  ."<input type=\"Radio\" name=$frage value=\"2\"><br>"
+	  ."<input type=\"Radio\" name=$frage value=\"3\"><br>"
+	  ."<input type=\"Radio\" name=$frage value=\"4\">"
+	."</form></td>";
+  
+	  }
+  
+  
+  }
+    
+  ?>
+  
+    </tr>
+  </table>
+</body>
+</html>

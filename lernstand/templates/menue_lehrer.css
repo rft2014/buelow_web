@@ -1,0 +1,369 @@
+
+#tabmenue {
+  padding: 3px;
+  border-bottom: 1px solid #222; 
+}
+#tabmenue li {
+  display: inline; 
+}
+#tabmenue li a {
+  padding: 3px 1em;
+  margin-left: 3px;
+  border: 1px solid #777;
+  border-bottom: 0;
+  text-decoration: none;
+  background-color: #044583;
+  color: white;
+  font-family: sans-serif; 
+}
+#tabmenue li a:hover {
+	background-color: #ffffff;
+	color: #044583;
+	}
+#tabmenue li a:focus {
+	background-color: #ffffff;
+	
+	}
+		
+#tabmenue li a#lehrerpers {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+  
+}
+#tabmenue li a#lehrertask {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+}
+#tabmenue li a#lehrerstart {
+  padding-bottom: 4px; 
+  border-bottom: 3px solid white;
+  background-color: white;
+  color: #044583;
+}
+
+#textbox {
+	position:absolute;
+	width:300px;
+	height:100px;
+	left:50%;
+	margin-left:-150px;
+	font-size:16px;
+	text-align:center;
+	padding:2em;
+	background-color:green;
+
+}
+
+		
+	html, body {height: 100%;}
+		
+		#linksaussen {
+	float: left;
+	width: 280px;
+	margin: 0; padding: 0;
+    border: 1px dashed silver;
+    background-color: #eee;	
+		}
+		
+		#linksaussen_ohnerechts{
+			float: left;
+	width: 350px;
+	margin: 0; padding: 0;
+    border: 1px dashed silver;
+    background-color: #eee;	
+			
+			}
+#button_schuelernamen{
+	width: 250px;	
+//	background-color: yellow;
+text-align: left;
+	}		
+		
+	#rechtsaussen {
+		float: right;
+		width: 180px;
+		font-size: 70%;
+		 margin: 0; padding: 0;
+    border: 1px dashed silver; background-color: #eee;	
+		}
+		
+		
+	#mitte {
+		height: 100%;
+		 margin-left: 300px;
+		 margin-right: 200px;
+		 
+			}
+			
+			#mitte_ohnerechts {
+		height: 100%;
+		 margin-left: 350px;
+		 margin-right: 200px;
+		 
+			}
+	#header_rechts {
+		font-family: sans-serif;		
+		}	
+		#schuelername {
+	font-family: sans-serif;
+	font-size: 130%;			
+	text-align: center;		
+			}	
+			
+	
+#lz {
+	//background-color: #b3d9ff;
+	color:black;
+		
+	
+	}
+	#lz_ht {
+		
+	font-style: italic;
+	color: black;
+	font-family: sans-serif;	
+	font-size: 80%;
+	background-color: lightgray;	
+		}	
+	
+
+	.textarea {
+    	width:100%;
+   	padding: 0;
+		margin-right: 200px;
+    	border: 1px solid #ccc;
+    }
+    
+    .beurteilungswahl{
+    	border-collapse:collapse;
+		color: black;    	
+    	
+    	}
+   .beurteilungswahl .td_0{
+    	width: 5%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	}
+    	
+    .beurteilungswahl .td_0a{
+    	width: 5%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	background-color: lightgrey;
+    	}	
+    	.beurteilungswahl .td_1{
+    	width: 10%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	}
+    	
+    	.beurteilungswahl .td_1a{
+    	width: 10%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	background-color: lightgrey;
+    	}
+    	
+    	.beurteilungswahl .td_2{
+    	//width: 15%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	}
+    	
+    	.beurteilungswahl .td_2a{
+    	//width: 15%;
+    	border: 1px solid black;
+		color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	background-color: lightgrey;
+    	}
+    	.beurteilungswahl .td_3{
+    	
+    	border: 1px solid black;
+	
+    	}
+    .beurteilungswahl .td_4{
+    	border: 1px solid black;
+    	color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	}
+    	.beurteilungswahl .td_4a{
+    	border: 1px solid black;
+    	color: black;    	
+    	font-size: 80%;
+    	font-family: sans-serif;
+    	background-color: lightgrey;
+    	}
+    	
+    	#beurteilungsblock {
+		border-style: solid;
+		border-color: #044583;    		
+    	margin-top:  5px;
+    	margin-bottom: 5px;	
+    	
+    	
+    		}
+    	#beurteilungsblock_header {
+			color: white;
+			background-color: #044583;
+			text-align: center;    		
+    		font-family: sans-serif;
+    		}
+    	
+    	#hinweise_consult {
+		background-color: #d2dafb;    		
+    		
+    		}
+    	#hinweise_consult_header {
+		background-color: #7a93ef;
+		font-style: italic;
+		font-size: 80%;    		
+    		
+    		}
+    		#hinweisblock_consult {
+		border-style: solid;
+    	border-color: #3d5dd5
+    			
+    			}
+    			
+    		#wasBox{
+    			font-family: sans-serif;
+		    	border-style: dotted;
+		    	padding: 10px;		
+    			}
+    	#titelWort {
+    		text-transform: uppercase;	
+    		font-weight: bold;
+		    		
+    		}
+    	#unterTitelWort {
+   		text-transform: uppercase; 		
+	    		
+    		}
+    		
+#druckbutton_beurteilung a{
+	-moz-box-shadow:inset 0px 13px 16px -3px #bee2f9;
+	-webkit-box-shadow:inset 0px 13px 16px -3px #bee2f9;
+	box-shadow:inset 0px 13px 16px -3px #bee2f9;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+	background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+	background-color:#63b8ee;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #3866a3;
+	display:inline-block;
+	color:#14396a;
+	font-family:sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	font-style:normal;
+	height:65px;
+	line-height:65px;
+	width:280px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 3px 0px #7cacde;
+}
+#druckbutton_beurteilung:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee) );
+	background:-moz-linear-gradient( center top, #468ccf 5%, #63b8ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+	//background-color:#468ccf;
+	background-color:yellow;
+}
+#druckbutton_beurteilung:active {
+	position:relative;
+	top:1px;
+}
+/*Einstellungen fuer tabellen  */
+table {
+	border-collapse: collapse;
+	border-style: solid;
+	border-color: blue;	
+	border-width: 1px;
+	margin: 5px;
+	}
+tr {
+border-style: solid;
+border-width: 1px;
+border-color: blue;	
+	
+	}
+td {
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: blue;
+	font-family: sans-serif;	
+	}
+th {
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: blue;	
+	font-family: sans-serif;
+	font-style: normal;
+	}
+
+select {
+	background-color: lightgoldenrodyellow;		
+		}
+input[type="submit"]
+ {
+	background-color: #63b8ee;
+	color: #14396a;
+	
+		}
+input[type="submit"]:hover
+ {
+	background-color: yellow;
+	color: #14396a;
+	cursor: pointer ;
+		}
+
+ .text {
+	border-collapse: collapse;
+	background-color: lightgoldenrodyellow;	
+		}
+
+/*Anzeige der Lernziele*/
+
+fieldset { border: 1px solid #C5D8E1; 
+           border-radius: 6px; 
+           background: whitesmoke; } 
+legend {
+	font-family: sans-serif;
+	font-size: 60%;	
+	}
+.lernziele {
+	font-family: sans-serif;
+	font-size: 80%;
+	font-style: italic;	
+	
+	}

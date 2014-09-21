@@ -1,0 +1,12 @@
+#oben {
+	background-color:lightgrey;
+	font-size: 16px;
+	font-family: Verdana, Arial;
+	color: grey;
+}
+
+#fachwahl{
+	background-color:grey;
+	font-size: 16px;
+	font-family: Verdana, Arial;
+}
