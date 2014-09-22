@@ -25,6 +25,13 @@ if($_SESSION['myclass'] !== "") {
 }	
 	?>
 	 <li><a href="./myclass_medienpass.php">Medienpass</a></li>
+<?php
+
+if($_SESSION['uid'] == '7568') 
+	{
+		echo "<li><a href=\"../kalender/index.php\">Kalender</a></li>";
+	}
+?>
 </ul>
 <div id="outer-wrapper">
 
@@ -40,8 +47,8 @@ if($_SESSION['myclass'] !== "") {
 </table>
 <h2>2. Halbjahr</h2>
 <table summary="" >
-<tr><td>ab  09.02.2015</td><td>Gespr&auml;che zur Lernentwicklung durch Klassenlehrer/Team</td></tr>
-<tr><td>bis 08.03.2015</td><td>(Grundlage ist Kompetenzbogen, Reflexion Lernziele bisher, &Uuml;berarbeitung Lernziele falls notwendig)</td></tr>
+<tr><td>ab  09.02.2015<br />bis 08.03.2015</td><td>Gespr&auml;che zur Lernentwicklung durch Klassenlehrer/Team<br />(Grundlage ist Kompetenzbogen, Reflexion Lernziele bisher, &Uuml;berarbeitung Lernziele falls notwendig)
+</td></tr>
 <tr><td>bis 08.03.2015</td><td>&Auml;nderungen der Lernziele online durch S, S erstellen Karteikarten und lassen sich diese vom betreffenden FL abzeichnen</td></tr>
 <tr><td>bis 12.06.2015</td><td>Online Selbsteinsch&auml;tzung durch S fertig. Online Kompetenzeinsch&auml;tzung durch FL fertig. Zuarbeit Bemerkungen zur Lernentwicklung fertig.</td></tr>
 <tr><td>bis 22.06.2015</td><td>Bemerkungen zur Lernentwicklung durch KL fertig</td></tr>
